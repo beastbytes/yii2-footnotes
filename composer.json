@@ -1,0 +1,23 @@
+{
+    "name": "beastbytes/yii2-footnotes",
+    "description": "Yii2 Extension that simplies adding and management of footnotes on a web page",
+    "keywords": ["yii2", "footnotes", "widget"],
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/beastbytes/yii2-footnotes/issues",
+        "source": "https://github.com/beastbytes/yii2-footnotes"
+    },
+    "authors": [
+        {
+            "name": "Chris Yates",
+            "email": "chris.l.yates@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": { "beastbytes\\footnotes\\": "" }
+    }
+}

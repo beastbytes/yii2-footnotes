@@ -1,0 +1,65 @@
+/**
+* Footnotes CSS
+* http://www.sitepoint.com/accessible-footnotes-css/
+*/
+
+/**
+* Initialiaze a `footnotes` counter
+*/
+body {
+  counter-reset: footnotes;
+}
+
+.footnotes {
+    border-top: 1px dotted #333;
+    font-size: 0.75em;
+    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+.footnotes .back-to-content {
+    display: inline-block;
+    margin-left: 0.5em;
+}
+
+.footnotes :target {
+    background-color: #FF6;
+}
+
+/**
+* Inline footnotes references
+* 1. Increment the counter at each new reference
+* 2. Reset link styles to make it appear like regular text
+*/
+a[aria-describedby="footnote-label"] {
+  color: inherit; /* 2 */
+  counter-increment: footnotes; /* 1 */
+  text-decoration: none; /* 2 */
+  outline: none; /* 2 */
+}
+
+/**
+* Actual numbered references
+* 1. Display the current state of the counter (e.g. `[1]`)
+* 2. Align text as superscript
+* 3. Make the number smaller (since it's superscript)
+* 4. Slightly offset the number from the text
+* 5. Reset link styles on the number to show it's usable
+*/
+a[aria-describedby="footnote-label"]::after {
+    color: blue; /* 5 */
+    content: '[' counter(footnotes) ']'; /* 1 */
+    cursor: pointer; /* 5 */
+    font-size: 0.5em; /* 3 */
+    margin-left: 2px; /* 4 */
+    text-decoration: underline; /* 5 */
+    vertical-align: super; /* 2 */
+}
+
+/**
+* Resetting the default focused styles on the number
+*/
+a[aria-describedby="footnote-label"]::focus::after {
+    outline: thin dotted;
+    outline-offset: 2px;
+}
